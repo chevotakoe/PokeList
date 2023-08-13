@@ -1,7 +1,11 @@
 package com.project.pokelist.data.dto.PokemonResponse
 
+import com.google.gson.annotations.SerializedName
+
 data class GenerationIv(
-    val diamond_pearl: com.project.pokelist.data.dto.PokemonResponse.DiamondPearl,
-    val heartgold_soulsilver: com.project.pokelist.data.dto.PokemonResponse.HeartgoldSoulsilver,
-    val platinum: com.project.pokelist.data.dto.PokemonResponse.Platinum
+    @SerializedName("diamond-pearl")
+    val diamond_pearl: DiamondPearl,
+    @SerializedName("heartgold-soulsilver")
+    val heartgold_soulsilver: HeartgoldSoulsilver,
+    val platinum: Platinum
 )

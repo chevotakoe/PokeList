@@ -1,7 +1,7 @@
 package com.project.pokelist.data.dto.PokemonResponse
 
 data class BlackWhite(
-    val animated: com.project.pokelist.data.dto.PokemonResponse.Animated,
+    val animated: Animated,
     val back_default: String,
     val back_female: Any,
     val back_shiny: String,

@@ -7,11 +7,13 @@ import com.project.pokelist.domain.Pokemon
 
 fun PokemonResponse.toPokemonEntity(): PokemonEntity{
     var typeList = mutableListOf<String>()
-    types.forEach{typeList.add(it.type.name)}
+    types.forEach{typeList.add(it.type.name)
+    }
+    val typesString = typeList.joinToString(separator = ",")
     return PokemonEntity(
         id = id,
         name = name,
-        types = typeList,
+        types = typesString,
         height = height,
         weight = weight,
         imageUrl = sprites.front_default

@@ -1,5 +1,8 @@
 package com.project.pokelist.data.dto.PokemonResponse
 
+import com.google.gson.annotations.SerializedName
+
 data class GenerationV(
-    val black_white: com.project.pokelist.data.dto.PokemonResponse.BlackWhite
+    @SerializedName("black-white")
+    val black_white: BlackWhite
 )

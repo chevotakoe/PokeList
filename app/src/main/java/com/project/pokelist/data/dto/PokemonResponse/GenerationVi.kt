@@ -1,6 +1,10 @@
 package com.project.pokelist.data.dto.PokemonResponse
 
+import com.google.gson.annotations.SerializedName
+
 data class GenerationVi(
-    val omegaruby_alphasapphire: com.project.pokelist.data.dto.PokemonResponse.OmegarubyAlphasapphire,
-    val x_y: com.project.pokelist.data.dto.PokemonResponse.XY
+    @SerializedName("omegaruby-alphasapphire")
+    val omegaruby_alphasapphire: OmegarubyAlphasapphire,
+    @SerializedName("x-y")
+    val x_y: XY
 )

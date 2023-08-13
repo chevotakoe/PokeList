@@ -7,23 +7,23 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface PokemonApi {
-    @GET
+    @GET("pokemon")
     suspend fun getPokemonList(
         @Query("limit") limit: Int,
         @Query("offset") offset: Int
     ): PokemonListResponse
 
-    @GET("{id}")
+    @GET("pokemon/{id}")
     suspend fun getPokemonEntity(
         @Path("id") id: Int
     ): PokemonResponse
 
-    @GET("{name}")
+    @GET("pokemon/{name}")
     suspend fun getPokemonEntityByName(
         @Path("name") name: String
     ): PokemonResponse
 
     companion object {
-        const val BASE_URL = "https://pokeapi.co/api/v2/pokemon/"
+        const val BASE_URL = "https://pokeapi.co/api/v2/"
     }
 }

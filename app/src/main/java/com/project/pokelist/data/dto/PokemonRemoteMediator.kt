@@ -11,6 +11,7 @@ import com.project.pokelist.data.db.PokemonEntity
 import com.project.pokelist.data.dto.PokemonResponse.PokemonResponse
 import com.project.pokelist.data.mappers.toPokemonEntity
 import com.project.pokelist.domain.Pokemon
+import kotlinx.coroutines.delay
 import retrofit2.HttpException
 import java.io.IOException
 
@@ -39,6 +40,7 @@ class PokemonRemoteMediator(
                      }
                  }
              }
+            delay(2000L)
             val pokemons = pokemonApi.getPokemonList(
                 limit = state.config.pageSize,
                 offset = loadKey

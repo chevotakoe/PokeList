@@ -1,6 +1,9 @@
 package com.project.pokelist.data.dto.PokemonResponse
 
+import com.google.gson.annotations.SerializedName
+
 data class GenerationVii(
-    val icons: com.project.pokelist.data.dto.PokemonResponse.Icons,
-    val ultra-sun-ultra-moon: com.project.pokelist.data.dto.PokemonResponse.UltraSunUltraMoon
+    val icons: Icons,
+    @SerializedName("ultra-sun-ultra-moon")
+    val ultra_sun_ultra_moon: UltraSunUltraMoon
 )

@@ -8,7 +8,7 @@ data class PokemonEntity(
     @PrimaryKey
     val id: Int,
     val name: String,
-    val types: List<String>,
+    val types: String,
     val height: Int,
     val weight: Int,
     val imageUrl: String
