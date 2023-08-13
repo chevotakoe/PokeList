@@ -9,21 +9,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Color.Companion.Blue
-import androidx.compose.ui.graphics.Color.Companion.Cyan
-import androidx.compose.ui.graphics.Color.Companion.Green
-import androidx.compose.ui.graphics.Color.Companion.Magenta
-import androidx.compose.ui.graphics.Color.Companion.Yellow
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.toUpperCase
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.project.pokelist.domain.Pokemon
 import com.project.pokelist.ui.theme.PokeListTheme
+import com.project.pokelist.ui.theme.Purple40
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -32,7 +27,7 @@ fun PokemonItem(
     modifier: Modifier = Modifier
 ){
     ElevatedCard(
-        modifier = modifier.fillMaxWidth().padding(18.dp),
+        modifier = modifier.fillMaxWidth().padding(18.dp, 6.dp),
         shape = RoundedCornerShape(50.dp),
         elevation = CardDefaults.cardElevation(
             defaultElevation = 5.dp
@@ -40,14 +35,18 @@ fun PokemonItem(
     ){
         Box(
             modifier = Modifier
-                .height(200.dp)
-                .background(color = Green)
+                .height(150.dp)
+                .background(color = Purple40)
         ) {
+            Box(
+                modifier = Modifier.align(Alignment.Center),
+                contentAlignment = Alignment.Center
+            ){
             AsyncImage(
+                modifier = Modifier.size(90.dp),
                 model = pokemon.imageUrl,
-                contentDescription = pokemon.name,
-                alignment = Alignment.Center
-            )
+                contentDescription = pokemon.name
+            )}
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -57,7 +56,7 @@ fun PokemonItem(
                                 Color.Transparent,
                                 Color.Cyan
                             ),
-                            startY = 150f
+                            startY = 112.5f
                         )
                     )
             )
@@ -70,7 +69,7 @@ fun PokemonItem(
                 Text(
                     pokemon.name.toUpperCase(),
                     style = TextStyle(
-                        color = Color.Blue,
+                        color = Color.DarkGray,
                         fontSize = 20.sp,
                         fontStyle = FontStyle.Italic,
                         fontWeight = FontWeight.Bold

@@ -1,7 +1,6 @@
 package com.project.pokelist.data.mappers
 
 import com.project.pokelist.data.db.PokemonEntity
-import com.project.pokelist.data.dto.PokemonListResponse.PokemonListResponse
 import com.project.pokelist.data.dto.PokemonResponse.PokemonResponse
 import com.project.pokelist.domain.Pokemon
 

@@ -10,7 +10,6 @@ import com.project.pokelist.data.db.PokemonDatabase
 import com.project.pokelist.data.db.PokemonEntity
 import com.project.pokelist.data.dto.PokemonResponse.PokemonResponse
 import com.project.pokelist.data.mappers.toPokemonEntity
-import com.project.pokelist.domain.Pokemon
 import kotlinx.coroutines.delay
 import retrofit2.HttpException
 import java.io.IOException
@@ -26,24 +25,24 @@ class PokemonRemoteMediator(
     ): MediatorResult {
         return try{
              val loadKey = when(loadType) {
-                 LoadType.REFRESH -> 0
+                 LoadType.REFRESH -> 1
                  LoadType.PREPEND -> return MediatorResult.Success(
                      endOfPaginationReached = true
                  )
                  LoadType.APPEND -> {
                      val lastItem = state.lastItemOrNull()
                      if(lastItem == null) {
-                         0
+                         1
                      } else {
                          (lastItem.id / state.config.pageSize) + 1
 
                      }
                  }
              }
-            delay(2000L)
+            delay(3000L)
             val pokemons = pokemonApi.getPokemonList(
                 limit = state.config.pageSize,
-                offset = loadKey
+                offset = (loadKey-1)*20
             )
 
             pokemonDb.withTransaction {
