@@ -29,7 +29,7 @@ object AppModule {
         return Room.databaseBuilder(
             context,
             PokemonDatabase::class.java,
-            "beers.db"
+            "poke.db"
         ).build()
     }
     @Provides
