@@ -1,4 +1,4 @@
-package com.project.pokelist.presentation
+package com.project.pokelist.presentation.PokemonListScreen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,13 +12,15 @@ import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 @HiltViewModel
-class PokemonViewModel @Inject constructor(
+class PokemonListViewModel @Inject constructor(
     pager: Pager<Int, PokemonEntity>
 ): ViewModel() {
-    val PokemonPagingFlow = pager
+
+    val pokemonPagingFlow = pager
         .flow
         .map { pagingData ->
             pagingData.map { it.toPokemon() }
         }
         .cachedIn(viewModelScope)
+
 }

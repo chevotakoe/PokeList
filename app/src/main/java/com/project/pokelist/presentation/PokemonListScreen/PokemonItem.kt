@@ -1,6 +1,7 @@
 package com.project.pokelist.presentation.PokemonListScreen
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -12,22 +13,25 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import coil.compose.AsyncImage
-import com.project.pokelist.domain.Pokemon
-import com.project.pokelist.ui.theme.PokeListTheme
+import com.project.pokelist.domain.models.Pokemon
 import com.project.pokelist.ui.theme.Purple40
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PokemonItem(
     pokemon: Pokemon,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    navController: NavController
 ){
     ElevatedCard(
-        modifier = modifier.fillMaxWidth().padding(18.dp, 6.dp),
+        modifier = modifier.fillMaxWidth().padding(18.dp, 6.dp).clickable {
+            navController.navigate(
+            "pokemon_detail_screen/${pokemon.id}"
+        ) },
         shape = RoundedCornerShape(50.dp),
         elevation = CardDefaults.cardElevation(
             defaultElevation = 5.dp
@@ -82,23 +86,4 @@ fun PokemonItem(
     }
 }
 
-
-
-@Preview
-@Composable
-fun PokemonItemPreview() {
-    PokeListTheme {
-        PokemonItem(pokemon = Pokemon(
-            id = 1,
-            name = "Nehochu",
-            types = "grass,water",
-            weight = 3,
-            height = 4,
-            imageUrl = "ssdfsefefwef"
-        ),
-            modifier = Modifier.fillMaxWidth()
-        )
-
-    }
-}
 

@@ -1,4 +1,4 @@
-package com.project.pokelist.domain
+package com.project.pokelist.domain.models
 
 data class Pokemon(
     val id: Int,

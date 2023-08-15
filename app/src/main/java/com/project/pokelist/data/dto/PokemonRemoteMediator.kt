@@ -66,4 +66,5 @@ class PokemonRemoteMediator(
             MediatorResult.Error(e)
         }
     }
+
 }

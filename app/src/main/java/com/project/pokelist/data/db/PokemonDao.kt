@@ -14,6 +14,9 @@ interface PokemonDao {
     @Query("SELECT * FROM pokemonentity")
     fun pagingSource(): PagingSource<Int, PokemonEntity>
 
+    @Query("SELECT * FROM pokemonentity WHERE id = :pokemonId")
+    fun pagingSourceId(pokemonId: Int): PokemonEntity
+
     @Query("DELETE FROM pokemonentity")
     suspend fun clearAll()
 }

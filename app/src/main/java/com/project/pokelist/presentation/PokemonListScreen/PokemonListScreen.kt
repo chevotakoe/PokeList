@@ -15,15 +15,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.items
-import com.project.pokelist.domain.Pokemon
+import com.project.pokelist.domain.models.Pokemon
 import com.project.pokelist.presentation.PokemonListScreen.PokemonItem
 
 @Composable
 fun PokemonListScreen(
-    pokemons: LazyPagingItems<Pokemon>
+    pokemons: LazyPagingItems<Pokemon>,
+    navController: NavController
 ) {
     val context = LocalContext.current
     LaunchedEffect(key1 = pokemons.loadState) {
@@ -51,6 +53,7 @@ fun PokemonListScreen(
                     if (pokemon != null) {
                         PokemonItem(
                             pokemon = pokemon,
+                            navController = navController,
                             modifier = Modifier.fillMaxWidth()
                         )
                     }
