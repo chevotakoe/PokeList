@@ -17,7 +17,7 @@ class PokemonDetailsViewModel @Inject constructor(
         return repository.getPokemonEntity(pokemonId)
     }
 
-    suspend fun getPokemonDetailsDb(pokemonId: Int): Resource<PokemonEntity> {
+    fun getPokemonDetailsDb(pokemonId: Int): Resource<PokemonEntity> {
         return repository.getPokemonEntityDb(pokemonId)
     }
 }
